@@ -1,0 +1,40 @@
+/*program for sorting array with two number mis placed*/
+#include<stdio.h>
+void Fix_misplaced_elements(int);
+int a[20];
+int main()
+{
+	int i,n;
+	printf("enter no of elemnts\n");
+	scanf("%d",&n);
+	printf("array elemnts before swapping\n");
+	for(i=0;i<n;i++)
+		printf("%d\t",a[i]);
+	Fix_misplaced_elements(n);
+	printf("\narray elemnts after swapping\n");
+	for(i=0;i<n;i++)
+		printf("%d\t"a[i]);
+	return 0;
+}
+void Fix_misplaced_elements(int m)
+{
+	int j,c,t,s;
+	for(j=0;j<m;j++)
+		if(a[j]>a[j+1])
+		{
+			t=j;
+			break;
+		}
+	for(j=t;j<m;j++)
+		if(a[j]>a[i+1])
+		{
+			s=j;
+			break;
+		}
+	c=a[t];
+	a[t]=a[s];
+	a[s]=c;
+}
+	
+
+	

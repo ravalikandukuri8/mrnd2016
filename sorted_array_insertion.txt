@@ -1,0 +1,55 @@
+/*program for inserting the given element in appropriate position*/
+#include<stdio.h>
+void Sorted_array_insertion(int);
+int a[20],n;
+int main()
+{
+	int i,e;
+	printf("enter no of elemnts\n");
+	scanf("%d",&n);
+	printf("enter array elemnts in sorted order\n");
+	for(i=0;i<n;i++)
+		scanf("%d",&a[i]);
+	printf("enter the elemnt to be inserted\n");
+	scanf("%d",&e);
+	if(n==20)
+		printf("array is full, insertion is not possible\n");
+	else
+	{
+		Sorted_array_insertion(e);
+		printf("array elemnts after insertion are\n");
+		for(i=0i<n;i++)
+			printf("%d\t",a[i]);
+	}
+	return 0;
+}
+void Sorted_array_insertion(int k)
+{
+	int j,l;
+	if(k<=a[0])
+	{
+		for(j=n;j>0;j--)
+			a[j]=a[j-1];
+		a[0]=k;
+		n++;
+	}
+	else if(k>=a[n-1])
+	{
+		a[n]=k;
+		n++;
+	}
+	else
+	{
+		for(j=0;j<n;j++)
+		{
+			if(a[j]<=k&&a[j+1]>k)
+			{
+				for(l=n;l>j+1;l--)
+					a[l]=a[l-1];
+				a[l]=k;
+				n++;
+			}
+		}
+	}
+}
+	

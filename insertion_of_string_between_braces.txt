@@ -1,0 +1,56 @@
+#include<stdio.h>
+void insertion_of_string_between_braces(char [],char []);
+void main()
+{
+        char str1[20],str2[20];
+        printf("enter any two string\n");
+        scanf("%s%s",str1,str2);
+        insertion_of_string_between_braces(str1,str2);
+}
+void insertion_of_string_between_braces(char s1[20],char s2[20])
+{
+        int l1,l2,i,j,flag=0;
+        char s3[20];
+        for(l1=0;s1[l1]!='\0';l1++);
+        for(i=0,j=l1-1;i<=j;i++,j--)
+        {
+                switch(s1[i])
+                {
+                        case '{':
+                                if(s1[j]!='}')
+                                        flag=1;
+                        break;
+                        case '[':
+                                if(s1[j]!=']')
+                                        flag=1;
+                        break;
+                        case '(':
+                                if(s1[j]!=')')
+                                        flag=1;
+                        break;
+                        case '<':
+                                if(s1[j]!='>')
+                                flag=1;
+                        break;
+                        case '"':
+                              if(s1[j]!='"')
+                 		 flag=1;
+                        break;
+                }
+        }
+        if(flag==1)
+                printf("invalid\n");
+        else
+        {
+                for(i=0;s1[i]!='\0';i++)
+                {
+                        if(i==l1/2)
+                        {
+                                printf("%s",s2);
+                                printf("%c",s1[i]);
+                        }
+                        else
+                                printf("%c",s1[i]);
+                }
+        }
+}

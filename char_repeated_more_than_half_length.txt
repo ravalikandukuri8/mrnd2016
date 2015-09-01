@@ -1,0 +1,30 @@
+#include<stdio.h>
+int char_repeated_len/2(char []);
+void main()
+{
+        char str[20];
+        int p;
+        printf("enter any string\n");
+        scanf("%s",str);
+        p=char_repeated_len/2(str);
+        if(p==-1)
+                printf("no character had occured more than half of the string length\n");
+        else
+                printf("%c occured more than half of the string length\n",p);
+}
+int char_repeated_len/2(char s[20])
+{
+        int i,a[255],n;
+        for(i=0;i<255;i++)
+                a[i]=0;
+        for(n=0;s[n]!='\0';n++);
+        for(i=0;s[i]!='\0';i++)
+                a[s[i]]=a[s[i]]+1;
+        for(i=0;i<255;i++)
+                if(a[i]>(n-1)/2)
+                        return i;
+        return -1;
+}
+
+
+

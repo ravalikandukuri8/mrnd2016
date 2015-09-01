@@ -1,0 +1,41 @@
+#include<stdio.h>
+void Left_rotation_array(int,int);
+int b[20];
+void main()
+{
+        int n,i,r;
+        printf("enter no of elemnts\n");
+        scanf("%d",&n);
+        printf("enter array elements\n");
+        for(i=0;i<n;i++)
+                scanf("%d",&b[i]);
+        printf("enter no of times to rotate\n");
+        scanf("%d",&r);
+        Left_rotation_array(n,r);
+        printf("array elements after rotation are\n");
+        for(i=0;i<n;i++)
+                printf("%d\t",b[i]);
+}
+void Left_rotation_array(int m,int l)
+{
+        int j,t,e;
+        if(m==l)
+                printf("no rotation is required\n");
+        else if(l>m)
+        {
+                t=l-m;
+                rotation(m,t);
+        }
+        else
+        {
+                while(l!=0)
+                {
+                        e=b[m-1];
+                        for(j=m-1;j>0;j--)
+                                b[j]=b[j-1];
+                        b[0]=e;
+                        l--;
+                }
+        }
+}
+

@@ -1,0 +1,38 @@
+#include<stdio.h>
+int is_second_permutation_of_first(char [],char []);
+int main()
+{
+        char str1[20],str2[20];
+        int p;
+        printf("enter any two strimgs\n");
+        scanf("%s%s",str1,str2);
+        p=is_second_permutation_of_first(str1,str2);
+        if(p==0)
+                printf("not a permutation\n");
+        else
+                printf("permutation\n");
+        return 0;
+}
+int is_second_permutation_of_first(char s1[20],char s2[20])
+{
+        int i,l1,l2,b[255];
+        for(i=0;i<255;i++)
+                b[i]=0;
+        for(l1=0;s1[l1]!='\0';l1++);
+        for(l2=0;s2[l2]!='\0';l2++);
+        if(l1!=l2)
+                return 0;
+        for(i=0;s1[i]!='\0';i++)
+                b[s1[i]]=1+b[s1[i]];
+        for(i=0;s2[i]!='\0';i++)
+        {
+                if(b[s2[i]]==0)
+                        return 0;
+                else
+                        b[s2[i]]=b[s2[i]]-1;
+        }
+        for(i=0;i<255;i++)
+                if(b[i]!=0)
+                        return 0;
+}
+
